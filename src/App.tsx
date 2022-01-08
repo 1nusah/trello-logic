@@ -1,26 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import TaskList from './components/TaskList';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const Lists = [
+		{
+			title: 'React ',
+			id: 0,
+			cardItems: [
+				{
+					id: 0,
+					content: 'Here we go',
+				},
+				{
+					id: 1,
+					content: 'TS dey lash me',
+				},
+			],
+		},
+		{
+			title: 'In Progress ',
+			id: 1,
+			cardItems: [
+				{
+					id: 0,
+					content: 'I dey top',
+				},
+			],
+		},
+		{
+			title: 'Review ',
+			id: 0,
+			cardItems: [
+				{
+					id: 0,
+					content: 'Niggas are on my case',
+				},
+			],
+		},
+	];
+	return (
+		<div className="App">
+			<div>
+				<h3>Trello clone</h3>
+			</div>
+			<div style={{ display: 'flex', overflowX: 'auto' }}>
+				{Lists.map((item) => (
+					<TaskList list={item} />
+				))}
+			</div>
+		</div>
+	);
 }
 
 export default App;
